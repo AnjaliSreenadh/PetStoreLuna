@@ -1,0 +1,46 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Item Added to Cart</title>
+	<style>
+		.container {
+            height: 30%;
+  width: 40%; /* Reduce the width */
+  margin: 40px auto; /* Center the box horizontally */
+  background-color: bisque;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  position: absolute; /* Add this line */
+  left: 50%; /* Add this line */
+  top: 50%; /* Add this line */
+  transform: translate(-50%, -50%); /* Add this line */
+}
+
+		.button {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h2 style="font-family: Ebrima; text-align: center">Item Added to Cart Successfully!</h2>
+{#        <img src='https://cdn.icon-icons.com/icons2/2785/PNG/512/trolley_cart_success_icon_177398.png   ' alt='Success Image'>#}
+		<p style="font-family: Ebrima; font-weight: bold">Your item has been added to your cart successfully.</p>
+		<button class="button" onclick="location.href='/home'">Back to Home</button>
+	</div>
+</body>
+</html>

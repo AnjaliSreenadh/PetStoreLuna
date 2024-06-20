@@ -1,0 +1,15 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Success</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/paystyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="success">Payment Success</h1>
+        <p>Your payment of {{ amount }} was successful!</p>
+    </div>
+</body>
+</html>

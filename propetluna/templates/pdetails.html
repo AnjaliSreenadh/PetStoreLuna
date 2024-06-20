@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProductDetails</title>
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- Mobile Metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <!-- Site Metas -->
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="{% static '/images/favicon.png' %}" type="">
+      <title>PetaLuna</title>
+      <!-- bootstrap core css -->
+      <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css' %}" />
+      <!-- font awesome style -->
+      <link href="{% static '/css/font-awesome.min.css' %}" rel="stylesheet" />
+      <!-- Custom styles for this template -->
+      <link href="{% static '/css/style.css' %}" rel="stylesheet" />
+      <!-- responsive style -->
+      <link href="{%static '/css/responsive.css' %}" rel="stylesheet" />
+</head>
+{% include 'loginnav.html' %}
+<body>
+  <div class="container-fluid p-2">
+    <div class="row">
+      <p class="text-bg-info p-2  mt-3" style="text-align: center; font-weight: bolder; font-family: Ebrima" >Product Details</p>
+      {% for x in Products %}
+      <div class="col-md-5">
+        <div class="w-auto-p-3">
+          <img src="{{x.pimage.url}}" style="height:250px; width:350px;">
+        </div>
+      </div>
+      <div class="col-md-7">
+        <p><b>Pet Name:   </b>{{x.pname}}</p>
+        <p><b>Price:   </b>{{x.pcost}}</p>
+        <p><b>Details:   </b>{{x.pdetails}}</p>
+        {% if x.cat == 1 %}
+           <p class="card-text">Cat</p>
+        {% elif x.cat == 2%}
+           <p class="card-text">Dog</p>
+        {% else %}
+           <p class="card-text">Bird</p>
+        {% endif %}
+        <input type="button" style=" background-color: #E49B0F; color: white; font-weight: bolder" value="Add to cart" class="btn btn-sm btn-info" onclick="window.location.href='/addtocart/{{x.id}}'">&nbsp;&nbsp;
+<input type="button" style=" background-color: #E49B0F; color: white; font-weight: bolder" value="View cart" class="btn btn-sm btn-info" onclick="window.location.href='/viewcart'">&nbsp;&nbsp;
+<input type="button" style=" background-color: #E49B0F; color: white; font-weight: bolder" value="Shop more" class="btn btn-sm btn-info" onclick="window.location.href='/home'">
+
+      </div>
+       {% endfor %}
+    </div>
+
+
+  </div>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/popper.js"></script>
+</body>
+{% include 'footer.html' %}
+</html>

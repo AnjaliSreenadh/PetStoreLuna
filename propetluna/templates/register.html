@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: darkblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .signup-container {
+        background: darkgrey;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<form action="" method="post">
+
+    {% csrf_token%}
+
+    <div class="signup-container">
+        <h2>Signup</h2>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="fullname">Name</label>
+                <input type="text" id="fullname" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+<!--            <div class="form-group">-->
+<!--                <label for="password">Confirm Password</label>-->
+<!--                <input type="password" id="confirmpassword" name="confirmpassword" required>-->
+<!--            </div>-->
+            <button type="submit">Signup</button>
+        </form>
+    </div>
+
+    {% for messages in messages %}
+    <h3 style="color: darkred">{{messages}}</h3>
+
+    {% endfor %}
+</form>
+</body>
+</html>
