@@ -72,18 +72,18 @@ def catfilter(request,cv):
 def home(request):
     context={}
     p=Product.objects.filter(is_active=True)
-    context['Products']=p # Here products means the table which is in Admin side
+    context['Products']=p
     # print(p)
     return render(request,'index.html',context)
 
 
-def sort(request,sv):#sv=sorting value
-    print(type(sv))#This will print the type of product whether it is int,str,etc
+def sort(request,sv):
+    print(type(sv))
     if sv == "0":
-        col="-pcost"#ascending
+        col="-pcost"
     else:
-        col="pcost"#descending
-    p=Product.objects.filter(is_active=True).order_by(col)# This line will filter all the products which are in the active state
+        col="pcost"
+    p=Product.objects.filter(is_active=True).order_by(col)
     context={}
     context["Products"]=p
     return render(request,"index.html",context)
